@@ -1,0 +1,648 @@
+\documentclass[12pt, a4paper]{scrreprt}
+
+\usepackage{mystyle}
+\usepackage{float}
+\usepackage{makecell}
+
+\begin{document}
+
+\input{Title}
+
+\tableofcontents
+\pagebreak
+
+\setcounter{chapter}{13}
+\chapter{Differenzialgleichungen}
+
+\section{Differenzialgleichungen erster Ordnung}
+
+\subsection{DGL aus Richtungsfeld bestimmen}
+Eine Differenzialgleichung erster Ordnung beschreibt immer die Steigung einer Funktion. Am einfachsten ist es in diesem Fall, sich zu überlegen, wann die Steigung \(=0\) wird; also für \(y'(x)\) 0 einzusetzen und sich dann zu überlegen, wann die Gleichung erfüllt ist; wo also die Steigung \(=0\) wird.
+
+Beispiel:\\[1em]
+\makebox[3cm]{\(y'(x) = xy\) \hfill} wird null bei \(x = 0\) oder \(y = 0\).\\
+\makebox[3cm]{\(y'(x) = x + y\) \hfill} wird null, wenn \(x = -y\) ist.\\
+\makebox[3cm]{\(y'(x) = x^2\) \hfill} wird null, für \(x = 0\).\\
+\makebox[3cm]{\(y'(x) = y^2\) \hfill} wird null, für \(y = 0\).
+
+\subsection{Separierbare Differenzialgleichung}
+Eine Differenzialgleichung erster Ordnung, die man in der Form
+
+\[
+  y'=\frac{f(x)}{g(y)}
+\]
+
+schreiben kann, bezeichnet man als \textbf{separierbar}
+
+\subsection{Separation der Variablen}
+
+Die allgemeine Lösung einer separierbaren Differenzialgleichung kann man durch folgende Schritte bestimmen
+\begin{enumerate}
+\item Ersetze \(y'\) formal durch \(\frac{dy}{dx}\).
+\item Separiere alle Terme in \(x\) und alle Terme in \(y\) und bringe die Differenzialgleichung damit in die Form \(g(y)dy=f(x)dx\).
+\item Integriere symbolisch \(\int{g(y)dy} = \int{f(x)dx}\) separat auf beiden Seiten.
+\item Löse die integrierte Gleichung nach der gesuchten Funktion \(y(x)\) auf.
+\item Falls Anfangswertproblem gegeben (Bspw.\ sei \(y(0) = 1\)): Für \(x = 0\) setzen; für \(y = 1\) setzen
+\item Nach \(C\) auflösen
+\item Gelöste DGL mit neuem C nochmals hinschreiben
+\end{enumerate}
+
+\subsection{Lösungsansatz homogene Dgl 1. Ordnung}
+
+Die allgemeine Lösung \(y_h\) einer homogenen linearen Differenzialgleichung
+
+\[
+  a_1(x)y'+a_0(x)y=0
+\]
+
+erster Ordnung lässt sich durch Separation bestimmen und lautet
+
+\[
+  y_h(x)=Ce^{-\int{\frac{a_o(x)}{a_y(x)}dx}}
+\]
+
+\subsection{Variation der Konstanten}
+
+Eine partikuläre Lösung einer \textbf{linearen Differenzialgleichung \textcolor{red}{erster Ordnung}}
+
+\[
+  a_1(x)y'+a_0(x)y=r(x)
+\]
+
+lässt sich durch \textbf{Variation der Konstanten} bestimmen:
+
+\begin{enumerate}
+\item Berechne die allgemeine Lösung der homogenen Differenzialgleichung.
+\item Ersetze die Konstante \(C\) in der homogenen Lösung durch eine Funktion \(C(x)\).\\
+  Daraus ergibt sich ein Ansatz \(y_p\) für eine partikuläre Lösung.
+\item Bestimme die Funktion \(C(x)\) durch Einsetzen von \(y_p\) in die Differenzialgleichung.
+\end{enumerate}
+
+\subsubsection{Beispiel}
+
+DGL:\ \(y'+\frac{1}{x}y=\frac{2}{1+x^2}\)
+
+\begin{enumerate}
+\item zuerst homogene Lösung finden
+  \[\rightarrow y_h(x)=\frac{C}{x}\]
+\item Variation der Konstanten; ersetze \(C\) durch \glqq{} Pseudofunktion\grqq{} \(C\textcolor{green}{(x)}\):
+  \[y(x)=\frac{\textcolor{green}{C(x)}}{x}\]
+\item Berechne alle relevanten Ableitung der Funktion \(y(x)\) und setze in ursprüngliche \textbf{inhomogene} DGL ein:
+
+  \begin{gather*}
+    \intertext{Ableiten:}
+    y(x)=\frac{\textcolor{green}{C(x)}}{x}\\
+    y'(x)=\frac{\textcolor{green}{C'(x)}*x-\textcolor{green}{C(x)}}{x^2}\\
+    \intertext{Einsetzen:}
+    \underbrace{\frac{\textcolor{green}{C'(x)}*x-\textcolor{green}{C(x)}}{x^2}}_\text{\(y'(x)\)}+\frac{1}{x}*\underbrace{\frac{\textcolor{green}{C(x)}}{x}}_\text{\(y(x)\)}=\frac{2}{1+x^2}
+  \end{gather*}
+
+\item Soweit als möglich kürzen (\(C(x)\) muss sich immer kürzen!!)
+\item Nach \(C'(x)\) auflösen und aufleiten
+\item Integrationskonstante \(C\) weglassen, da ja ein Wert für C gesucht ist!
+\item \(C(x)\) einsetzen in partikulären Ansatz \(y_p(x)\) und soweit als möglich kürzen
+\item Allgemeine Lösung \(y(x)\) ergibt sich aus Addition von \(y_h(x)\) und \(y_p(x)\)
+  \[y(x)=y_h(x)+y_p(x)\]
+  
+\end{enumerate}
+\section{Differenzialgleichungen höherer Ordnung}
+\subsection{Nichtlineare Differenzialgleichungen}
+
+Nichtlinear ist eine Differenzialgleichung dann, wenn sie \mytextred{\textbf{Produkte ihrer Lösung \(y(x)\) oder der Ableitungen}} beinhaltet\\[1em]
+Beispiele:
+
+  \begin{align*}
+    % split bewirkt hier, dass die \\ auch als Zeilenumbruch gewertet werden!
+    y''*y &=3x\\
+    2y'*y^2 &=0\\
+    y'*\frac{y}{x} &= 4x^2
+  \end{align*}
+
+\subsection{Lineare DGL n-ter Ordnung lösen}
+
+\begin{enumerate}
+\item Berechne die allgemeine Lösung \(y_h(x)\) der homogenen Gleichung
+\item Berechne eine partikuläre Lösung \(y_p(x)\) der inhomogenen Differenzialgleichung
+\item Die allgemeine Lösung einer \textbf{inhomogenen} linearen DGL \(y(x)\) ergibt sich aus der Addition der homogenen Lösung \(y_h(x)\) und einer partikulären Lösung \(y_p(x)\)
+\end{enumerate}
+
+\[
+  y(x)=y_h(x)+y_p(x)
+\]
+
+Bei \textbf{homogenen} DGLs Hergang derselbe, nur eben ohne partikulären Ansatz!
+
+\subsection{Charakteristische Gleichung}
+
+Zur homogenen linearen Differenzialgleichung
+
+\[
+  a_n y^{(n)}-a_{n-1}y^{(n-1)}+ \cdots +a_2y''+a_1y'+a_0y=0
+\]
+
+gehört die \textbf{charakteristische Gleichung}
+
+\[
+  a_n\lambda^n+a_{n-1}\lambda^{(n-1)}+ \cdots + a_2\lambda^2+a_1\lambda+a_0=0
+\]
+
+\subsection{Lösungsansatz für homogene, lineare DGLs mit AWP}
+
+Bei DGL \mytextred{\(n\)-ter} Ordnung sind auch \(\mytextred{n}\) Anfangswerte gegeben!
+
+\begin{enumerate}
+\item Charakteristische Gleichung der DGL erstellen
+\item Eigenwerte herausfinden
+\item Allgemeine Lösung erstellen
+\item Allgemeine Lösung \mytextred{\(n\)} mal ableiten
+\item Die Anfangswerte einsetzen und so alle Konstanten bestimmen
+\item Neue, spezielle Lösung mit den zuvor bestimmten Konstanten formulieren
+\end{enumerate}
+
+\subsection{Fälle beim Lösen von Eigenwerten}
+
+\subsubsection{Mehrfache reelle Eigenwerte}
+
+Wenn \(\lambda\) ein doppelter Eigenwert (z.B. MNF ergibt zweimal 2 oder so) der DGL ist, so werden trotzdem zwei reelle Fundamentallösungen erzeugt:
+
+\[
+  y_1(x)=e^{\lambda x}, y_2(x)=xe^{\lambda x}
+\]
+
+Je höher die Vielfachheit der Nullstelle, umso größer die Potenz auf dem vorangestellten \(x\). Zum Beispiel bei vierfacher Nullstelle:
+
+\[
+  \begin{split}
+    y_1(x)=e^{\lambda x},\\
+    y_2(x)=xe^{\lambda x},\\
+    y_3(x)=x^2e^{\lambda x},\\
+    y_4(x)=x^3e^{\lambda x}
+  \end{split}
+\]
+
+\subsubsection{komplexe Eigenwerte}
+
+Jedes konjugiert komplexe Paar Eigenwerte \(\lambda_{1,2}=\textcolor{red}{a} \pm i\textcolor{green}{b}\) erzeugt zwei Fundamentallösungen:
+
+\[
+  y_1(x)=e^{\textcolor{red}{a}x}\cos(\textcolor{green}{b}x),\qquad y_2(x)=e^{\textcolor{red}{a}x}\sin (\textcolor{green}{b}x)
+\]
+
+
+\subsection{Störansatz}
+
+Bei linearen \textbf{DGLs erster Ordnung} kann eine partikuläre Lösung mithilfe von \textit{Variation der Konstanten} ermittelt werden.\\
+Dieser Ansatz funktioniert jedoch bei DGLs höherer Ordnung nicht mehr! Bei DGLs höherer Ordnung wird die partikuläre Lösung anhand eines \textbf{Störansatzes} ermittelt. Dieser ergibt sich aus der Art der Störfunktion. Für verschiedene Arten von Funktionen gibt es verschiedene Störansätze. Diese können durch nachschlagen in einer \textbf{Störansatztabelle} ermittelt und eingesetzt werden.\\[1em]
+
+\begin{center}
+  \makegapedcells{}
+  \begin{tabular}{l | l | r}
+
+    Störfunktion & Ansatz für partikuläre Lösung\\
+    \hline \hline
+    \makecell{Polynom vom Grad \mytextred{n}:\\ \(r(x) = a_0 + a_1x + a_2 x^2 \dots a_nx^{\mytextred{n}}\)} & \makecell{Polynom vom Grad \mytextred{n}\\\(y_p(x) = A_0 + A_1x + A_2 x^2 \dots + A_n x^{\mytextred{n}}\)}\\ \hline
+    \makecell{Exponentialfunktion\\ \(r(x) = ae^{\mytextred{k}x}\)} & \makecell{Exponentialfunktion\\ \(y_p(x) = Ae^{\mytextred{k}x}\)}\\ \hline
+    \makecell{Harmonische Schwingung\\ \(r(x) = a_1 \cos (\mytextred{\omega} x) + a_2 \sin (\mytextred{\omega} x)\)} & \makecell{Harmonische Schwingung\\ \(y_p(x) = A_1 \cos (\mytextred{\omega} x) + A_2 \sin (\mytextred{\omega} x)\)}\\ \hline
+    \makecell{Gedämpfte harmonische Schwingung\\ \(r(x) = e^{\mytextred{k}x} (a_1 \cos (\mytextred{\omega} x) + a_2 \sin (\mytextred{\omega} x))\)} & \makecell{Gedämpfte harmonische Schwingung\\ \(y_p(x) = e^{\mytextred{k} x} (A_1 \cos (\mytextred{\omega} x) + A_2 \sin (\mytextred{\omega} x))\)}\\ \hline
+  \end{tabular}
+\end{center}
+
+\subsubsection{Vorgehen bei partikulärer Lösung mit Störansatz}
+
+\begin{enumerate}
+\item Homogene Lösung \(y_h(x)\) lösen
+\item Resonanz prüfen
+\item geeigneten Störansatz wählen und Störansatz ableiten, bis die höchste auftretende Ableitung erreicht wurde
+\item Störansatz + Ableitungen in ursprüngliche \textbf{inhomogene} DGL einsetzen
+\item alles ausmultiplizieren und nach Potenzen ordnen
+\item Koeffizientenvergleich mit der \glqq{} originalen \grqq{} Störfunktion (Faktoren der gleichen Potenz werden gleichgesetzt und aufgelöst)
+\end{enumerate}
+
+\subsubsection{Superposition}
+
+Ist die Störfunktion \(r(x)\) eine zusammengesetzte Funktion von Addition oder Subtraktion verschiedener Einzelfunktionen \(r(x)=r_1(x)\pm r_2(x)\pm \cdots r_n(x)\), so kann für \textbf{jede Einzelfunktion der Störansatz separat errechnet werden}. Dieses Vorgehen nennt man \textbf{Superposition}.
+
+\subsubsection{Resonanz}
+
+Ist die \textbf{gesamte} Störfunktion (oder bei Superposition eine der Störfunktionen) in der allgemeinen Lösung der homogenen DGL enthalten, so liegt \textbf{Resonanz} vor.\\
+In einem solchen Fall muss der für den Typ der Störfunktion gewählte Ansatz mit x multipliziert werden.
+
+\subsection{Eulerverfahren}
+
+Um das Eulerverfahren anwenden zu können benötigen wir eine Differenzialgleichung 1. Ordnung, sowie einen Funktionswert an der Stelle \(f(x_0) = m\) und eine Schrittweite \(h\)\\[1em]
+Algorithmus für das Vorgehen: \(y_{k+1} = y_k + h * y'(x_k) \quad | \quad x_{k+1} = x_k + h\)
+
+\textbf{Vorgehen:}
+\begin{enumerate}
+\item Differenzialgleichung nach \(y'(x)\) auflösen
+\item Startwerte \(x_0\) und \(y_0\) festlegen (sind gegeben)
+\item \(y_1\) berechnen: \(y_1 = y_0 + h * y'(x_0)\)
+\item \(x_1 = x_0 + h\)
+\item \(y_2\) berechnen: \(y_2 = y_1 + h * y'(x_1)\)
+\item \(x_2 = x_1 + h\)
+\item \dots
+\end{enumerate}
+
+\textbf{Beispiel:}
+
+\glqq{} Berechnen Sie zwei Schritte des Eulerverfahrens für die DGL \(y'(x) + 4x^3 \cdot y(x) = 0, \quad y(1)= 1,\quad h = 0.1\) \grqq{}
+
+\begin{enumerate}
+\item Nach \(y'(x)\) auflösen: \(y'(x) = -4x^3 \cdot y(x)\)
+\item Startwerte festlegen: \(x_0 = 1,\quad y_0 = 1\)
+\item \(y_1\) berechnen: \(y_1 = y_0 + h \cdot y'(x_0)\quad = y_1 = 1 + 0.1 \cdot (-4\cdot1^3 \cdot 1) = \dots\)
+\item \(x_1\) berechnen: \(x_1 = x_0 + h = 1 + 0.1 = 1.1\)
+\item \(y_2\) berechnen: \dots
+\end{enumerate}
+
+\section{Differenzialgleichungssysteme}
+
+\subsection{Differenzialgleichung in Differenzialgleichungssystem umschreiben}
+
+Eine inhomogene Differenzialgleichung mit konstanten Koeffizienten
+
+\[
+  a_ny^{n} + a_{n-1}y^{n-1} + \cdots + a_2y'' + a_1y' + a_0y = r(t)
+\]
+
+kann auch als Differenzialgleichungssystem der Form
+
+\[
+  \begin{pmatrix}
+    z_1\\
+    z_2\\
+    z_3\\
+    \vdots\\
+    z_n
+  \end{pmatrix} ' =
+  \begin{pmatrix}
+    0 & 1 & 0 & \dots & 0\\
+    0 & 0 & 1 & \dots & 0\\
+    \vdots & \vdots & \vdots & \ddots & \vdots\\
+    0 & 0 & 0 & \dots & 1\\
+    - \frac{a_0}{a_n} & - \frac{a_1}{a_n} & - \frac{a_2}{a_n} & \dots & - \frac{a_{n-1}}{a_n}
+  \end{pmatrix} *
+  \begin{pmatrix}
+    z_1\\
+    z_2\\
+    z_3\\
+    \vdots\\
+    z_n
+  \end{pmatrix} +
+  \begin{pmatrix}
+    0\\
+    0\\
+    0\\
+    \vdots\\
+    \frac{r(t)}{a_n}
+  \end{pmatrix}
+\]
+
+Geschrieben werden.\\[2em]
+\myhspace\mytextred{Falls \(n - 1\) Anfangsbedingungen gegeben sind werden diese als Lösungsvektor an der Stelle \(x_0\) geschrieben!}
+\begin{figure}[H]
+Bsp.:
+
+\textbf{Gegeben}:
+
+\[
+  7y''' + 3y'' + 2y' - 5y = \sin(x)
+\]
+\textbf{Anfangsbedingungen}: \(y(0) = 1, y'(0) = 4, y''(0) = 0\)\\[2em]
+
+\textbf{Gesucht}: Dgl-System mit Lösungsvektor
+
+\textbf{Lösung}:
+
+\[
+  \begin{pmatrix*}[c]
+    z_1\\
+    z_2\\
+    z_3
+  \end{pmatrix*} ' =
+  \begin{pmatrix*}[c]
+    0 & 1 & 0\\
+    0 & 0 & 1\\
+    \frac{5}{7} & - \frac{2}{7} & - \frac{3}{7}
+  \end{pmatrix*}
+  \begin{pmatrix*}[c]
+    z_1\\
+    z_2\\
+    z_3
+  \end{pmatrix*} +
+  \begin{pmatrix*}[c]
+    0\\
+    0\\
+    \frac{\sin(x)}{7}
+  \end{pmatrix*}
+\]
+\(\mathbf{z(0)} = \left( \begin{smallmatrix} 1 \\ 4 \\ 0 \end{smallmatrix} \right)\)
+\end{figure}
+
+\subsection{Kriterien für stabile und instabile Systeme}
+\begin{enumerate}
+\item Realteile aller Eigenwerte sind negativ: \textbf{System ist asymptotisch stabil}
+\item Mindestens ein Eigenwert ist positiv: \textbf{System ist instabil}
+\item Mindestens ein Realteil eines Eigenwerts ist 0: \textbf{System ist grenzstabil}
+\end{enumerate}
+
+\subsection{Vorgehen bei komplexen Eigenwerten}
+
+Besitzt das DGL-System als Eigenwert ein Paar konjugiert komplexer Eigenwerte \(\lambda_{1/2} = a \pm \mytextred{i}b\), so genügt es, zu \textbf{einem der beiden Eigenwerte} einen Eigenvektor zu berechnen.\\
+Der so entstandene komplexe Eigenvektor lässt sich zerlegen in Real- und Imaginärteil mithilfe des eulerschen Satzes: \(e^{(a+\mytextred{i}b)t} = e^{at} \cdot e^{\mytextred{i} bt} = e^{at} (\cos (bt) + \mytextred{i} \sin (bt))\)\\
+Bsp.:
+
+\begin{align*}
+  z_1(t) &= e^{(3 + 2 \mytextred{i}) t}
+  \begin{pmatrix}
+    -2 \mytextred{i}\\
+    1
+  \end{pmatrix}\\
+  &= e^{3t} (\cos (2t) + \mytextred{i} \sin (2t))
+  \begin{pmatrix}
+    -2 \mytextred{i}\\
+    1
+  \end{pmatrix}\\
+         &= e^{3t} \left(
+           \begin{pmatrix}
+             2 \sin (2t)\\
+             \cos (2t)
+           \end{pmatrix}
+  +\mytextred{i}
+  \begin{pmatrix}
+    -2 \cos (2t)\\
+    \sin (2t)
+  \end{pmatrix}
+           \right)
+\end{align*}
+
+Das DGL-System hat somit die allgemeine Lösung:
+\[
+  \mathbf{x}(t) = C_1 e^{3t}
+  \begin{pmatrix}
+    2 \sin (2t)\\
+    \cos (2t)
+  \end{pmatrix}
+  + C_2 e^{3t}
+  \begin{pmatrix}
+    -2 \cos (2t)\\
+    \sin (2t)
+  \end{pmatrix}
+\]
+
+\subsection{Lösungsstrategie für lineare DGL-Systeme mit konstanten Koeffizienten}
+
+\begin{enumerate}
+\item DGL System in Matrixform bringen
+\item Eigenwerte der A-Matrix berechnen (Hauptdiagonale -\(\lambda\), Determinante berechnen, charakteristische Gleichung aufstellen, mit 0 gleichsetzen und auflösen)
+\item Eigenvektoren aus Eigenwerten berechnen (zu jedem Eigenwert \(\lambda_1\cdots\lambda_n\) ein LGS ausfstellen (\(\lambda\) jeweils einsetzen und neue Matrix \(=0\) setzen) und auflösen)
+\item Allgemeine Lösung ist \(y(x)=C_1*e^{\lambda_1*t}*EV_1+\cdots+C_n*e^{\lambda_n*t}*EV_n\)
+\item Bei einem AWP, z.B. \(z(0) =
+  \begin{smallmatrix}
+    n\\
+    k
+  \end{smallmatrix}
+\) Wird \(0\) für \(t\) gewählt und die Lösungsgleichung mit dem Vektor \(
+\begin{smallmatrix}
+  n\\
+  k
+\end{smallmatrix}
+\) gleichgesetzt. nun werden die Konstanten \(C_1, C_2 \dots C_n\) aus dem entstehenden LGS bestimmt.
+\end{enumerate}
+Auch hier ist \(y(x)\) eine Summe aus den einzelnen Fundamentallösungen \(y_1\cdots y_n)\)
+
+\subsection{Eulerverfahren bei DGL-Systemen}
+\textbf{To do!}
+
+\setcounter{chapter}{9}
+\chapter{Potenzreihen}
+
+\section{Reihe}
+Eine Reihe ist definiert als die \textbf{Summe einer Folge}, also als:
+
+\[
+  \sum_{k=0}^{\infty}a_k  \qquad =  a_0 + a_1 + a_2 + a_3 \cdots
+\]
+
+\section{Partialsumme}
+
+Wenn man bei einer Reihe die Summe der ersten \textit{fünf} Reihenglieder bildet nennt man das die \textit{vierte} \textbf{Partialsumme} der Reihe \((a_k)\)
+
+\section{Geometrische Reihe}
+
+Die \textbf{Geometrische Reihe} wird dargestellt durch
+
+\[
+  \sum_{k=0}^{\infty} x^k \quad = 1+q+q^2+q^3+ \cdots +q^n \quad = \quad \frac{1}{1-q} \qquad , r = 1
+\]
+
+Die geometrische Reihe konvergiert nur für Werte \(|q| < 1\). Für alle anderen Werte für \(q\) divergiert die Reihe.
+
+\section{Konvergenzkriterium}
+
+Eine Reihe konvergiert nur dann, wenn ihre Glieder eine \textbf{Nullfolge} bilden; wenn Sie gegen Null streben.
+
+\section{Reihe der e-Funktion \(e^x\)}
+
+Die \textbf{Reihe der e-Funktion} wird dargestellt durch
+
+\[
+  \sum_{k=0}^{\infty}\frac{x^k}{k!} \quad = 1 + \frac{x}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!} \cdots \frac{x^n}{n!} \qquad , r = \infty
+\]
+
+\section{Potenzreihe (mit Entwicklungspunkt)}
+
+Eine Potenzreihe mit dem \textbf{Entwicklungspunkt} \(x_0\) wird nach dem Muster:
+
+\[
+  p(x) = \sum_{k=0}^{\infty} a_k(x- \mathbf{x_0} )^k \quad = a_0 + a_1(x-x_0) + a_2(x-x_0)^2 + \cdots
+\]
+
+gebildet.
+
+Falls \(x_0=0\) ergibt sich dementsprechend:
+
+\[
+  p(x) = \sum_{k=0}^{\infty} a_k x^k \quad = a_0 + a_1x + a_2x^2 + \cdots
+\]
+
+\section{Genauigkeit abschätzen mit Leibniz-Kriterium}
+Wenn alternierende Reihe gegeben ist, und eine Fehlerabschätzung (z.B. \(10^{-2}\)) gesucht ist, dann kann nach dem Glied aufgehört werden, das einen Wert (im Beispiel) \(\leq \left| \frac{1}{10} \right|\).\\
+\textbf{Achtung: }Funktioniert nur bei alternierenden Reihen!
+
+\section{Aufgabenstellung \glqq Entwickeln Sie eine Reihe aus der Funktion \(f(x)\) bis zum \(n\)-ten Grad\grqq}
+\begin{enumerate}
+\item Erkenne elementare Reihen in der gegebenen Funktion
+\item Substituiere \(x\) und ersetze \(x\) der elementaren Reihen
+\end{enumerate}
+
+\textbf{Beispiel:}
+
+Gegeben: \(f(x) = e^{-x} - 1\)
+
+\section{Konvergenzradius einer zusammengesetzten Reihe}
+Bei einer Funktion, die aus mehreren Potenzreihen zusammengesetzt ist, gilt jeweils der \textbf{kleinste Konvergenzradius} als Gesamtkonvergenzradius der Funktion.
+
+\section{Taylorreihe}
+
+Eine Taylorreihe an der Stelle \(x_0\) ist definiert durch
+
+\[
+  \sum_{k=0}^{\infty}\frac{f^{(k)}(x_0)}{k!}{(x-x_0)}^k \quad \text{, also} \quad T(x)=f(x_0)+\frac{f(x_0)^{'}}{1!}{(x-x_0)}+\frac{f(x_0)^{''}}{2!}{(x-x_0)}^2+\frac{f(x_0)^{'''}}{3!}{(x-x_0)}^3+ \cdots
+\]
+
+Das \textbf{Taylorpolynom} vom Grad \(n\) wäre dementsprechend definiert durch
+
+\[
+  T_n(x)=f(x_0)+\frac{f(x_0)^{'}}{1!}{(x-x_0)}+\frac{f(x_0)^{''}}{2!}{(x-x_0)}^2+\frac{f(x_0)^{'''}}{3!}{(x-x_0)}^3+ \cdots + \frac{f(x_0)^{n}}{n!}{(x-x_0)}^n
+\]
+
+\section{Reihen von Sinus und Cosinus}
+Sinus: \hfill
+\(
+\sum_{k=0}^{\infty}(-1)^k\frac{x^{2k+1}}{(2k+1)!} \quad = \frac{x}{1!} - \frac{x^3}{3!} + \frac{x^5}{5!} \cdots \qquad r = \infty
+\)
+
+Cosinus: \hfill
+\(
+\sum_{k=0}^{\infty}(-1)^k\frac{x^{2k}}{(2k)!} \quad = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} \cdots \qquad r = \infty
+\)
+
+\clearpage
+
+\setcounter{chapter}{15}
+
+\chapter{Fourier-Reihen}
+
+\section{Darstellung einer Fourier-Reihe}
+Eine Fourier Reihe wird dargestellt durch
+\[
+  f(t) = \frac{a_0}{2} + \sum_{k=1}^{\infty}(a_k \cos (k \omega t) + b_k \sin (k \omega t)), \quad \omega = \frac{2 \pi}{T}
+\]
+
+\section{Berechnung von \(\frac{a_0}{2}\)}
+
+\(\frac{a_0}{2}\) heißt auch \textbf{Mittelwert} oder \textbf{Gleichanteil}. Er entspricht dabei jeweils dem Integral der Funktion pro Periode.
+
+\[
+  \frac{a_0}{2} \quad = \quad \frac{\text{Integral über eine Periode}}{\text{Periodendauer}}
+\]
+
+\section{Berechnung der reellen Fourier-Koeffizienten \(a_k\) und \(b_k\)}
+
+Hierbei muss die Periodendauer \(T\) und die Kreisfrequenz \(\omega = \frac{2\pi}{T}\) bekannt sein
+
+\begin{align*}
+  a_k &= \frac{2}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}}f(t) \cos (k \omega t) dt\\[10pt]
+  b_k &= \frac{2}{T} \int_{-\frac{T}{2}}^{\frac{T}{2}}f(t) \sin (k \omega t) dt
+\end{align*}
+
+Der Trick hierbei ist \(f(t)\) in eine Abschnittsweise definierte Funktion aufzuspalten und die Integrale dann getrennt zu berechnen.\\
+Es kann zudem immer auch das Integral von \(0\) bis \(T\) berechnet werden; diese Form ist äquivalent zu \(-\frac{T}{2}\) bis \(\frac{T}{2}\)
+
+\section{Umformung der Kosinus- und Sinusterme bei Berechnung der reellen Fourier-Koeffizienten}
+
+\begin{empheq}[box = \fbox]{align*}
+  \sin(k\pi) &= 0\\
+  \cos(k\pi) &=
+  \begin{cases}
+    \phantom{-}1 \quad \text{für } k \text{ gerade}\\
+    -1 \quad \text{für } k \text{ ungerade}\\
+  \end{cases}\\
+  &\textcolor{myred}{\rightarrow (-1)^k}\\
+  - \cos(k\pi) &=
+  \begin{cases}
+    -1 \quad \text{für } k \text{ gerade}\\
+    \phantom{-}1 \quad \text{für } k \text{ ungerade}\\
+  \end{cases}\\
+  &\textcolor{myred}{\rightarrow (-1)^{k+1}}\\[1em]
+  \cos(2\pi k) &= 1
+\end{empheq}
+
+\section{Stetigkeit und Koeffizienten}
+
+Wenn die Koeffizienten der Fourierreihe proportional zu \(\frac{1}{k}\) sind ist die Reihe unstetig
+\myhspace \mytextred{$\rightarrow$ Langsame Konvergenz}
+
+Wenn die Koeffizienten dagegen proportional zu \(\frac{1}{k^2}\) sind ist die Reihe stetig
+\myhspace \mytextred{$\rightarrow$ Schnelle Konvergenz}
+
+\section{Darstellung einer Funktion vom Grad \(\mathbf{n}\)}
+Ist die Fourier-Reihe einer Funktion vom Grad \(n\) gesucht, so ist nach der Fourier-Reihe
+
+\[
+  p_n(t) = \frac{a_0}{2} + \sum_{k=1}^{n}(a_k \cos (k \omega t) + b_k \sin (k \omega t)), \quad \omega = \frac{2 \pi}{T}
+\]
+
+gefragt.\\[1em]
+Es müssen hier also lediglich die Fourier-Koeffizienten \(a_1, a_2, \cdots a_n\) bzw. \(b_1, b_2, \cdots b_n\) berechnet werden.
+
+\section{Komplexe Fourier-Reihe}
+
+\subsection{Komplexer Fourier-Koeffizient \(\mathbf{c_k}\)}
+Der komplexe Fourier-Koeffizient \(c_k\) berechnet sich durch die Formel
+
+\[
+  c_k = \frac{1}{T} * \int_0^T f(t)e^{-ikwt}dt, \quad k = 0,\ \pm 1,\ \pm 2, \cdots
+\]
+
+\section{Umrechnung der \(e\)-Terme beim Berechnen von \(c_k\)}
+\begin{align*}
+  e^{-ik2\pi} &= 1\\
+  e^{-ik\pi} &= (-1)^k\\[1em]
+  \rightarrow \qquad &1 \text{ für } k \text{ gerade}\\
+  -&1 \text{ für } k \text{ ungerade}
+\end{align*}
+
+\section{Umrechnung von \(c_k\) zu \(a_k\) und \(b_k\)}
+\begin{empheq}[box = \fbox]{align*}
+  a_k &= 2 \mathrm{Re}(c_k)\\[1em]
+  b_k &= -2 \mathrm{Im}(c_k)\\[1em]
+  \rightarrow c_k &= \frac{a_k-ib_k}{2}
+\end{empheq}
+
+
+\section{Generelle Vorgehensweise beim Erstellen einer Fourier-Reihe}
+\begin{figure}[h]
+  \begin{enumerate}
+  \item Fourierreihe skizzieren
+  \item \(T\) und \(\omega\) ablesen / berechnen
+  \item Feststellen ob die Fourierreihe gerade, ungerade oder keins von beidem ist
+  \item Fourierkoeffizienten berechnen
+  \item Falls Fourierkoeffizienten komplex: Umrechnen in reelle Darstellung
+  \item Erste Reihenglieder der Fourierreihe berechnen und aufschreiben
+  \end{enumerate}
+\end{figure}
+
+
+\begin{figure}[H]
+\section{Integrale von \(t*\sin(k \omega t)\) und \(t*\cos(k \omega t)\)}
+
+\begin{empheq}[box = \fbox]{align*}
+  \int{t * \sin(k \omega t)}\ dt &= \frac{\sin(k \omega t) - k \omega t \cos(k \omega t)}{k^2 \omega^2}\\[1em]
+  \int{t * \cos(k \omega t)}\ dt &= \frac{k \omega t \sin(k \omega t) + \cos(k \omega t)}{k^2 \omega^2}
+\end{empheq}
+
+Im Falle von \(\omega = \frac{2 \pi}{T}\ ;\ \frac{2 \pi}{2 \pi}\) verschwindet der \(\omega\)-Anteil.
+\end{figure}
+
+
+
+\chapter{Wichtige Integrale}
+
+\paragraph{\(ln(x)\)} \hfill
+\(
+\int \frac{1}{x}
+\)
+
+\paragraph{\(arctan(x)\)} \hfill \(\int \frac{1}{1+x^2}\)
+
+
+
+\end{document}
+
+%%% TeX-command-extra-options: "-shell-escape"
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

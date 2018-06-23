@@ -1,0 +1,109 @@
+\message{ !name(Mathe2Formelsammlung.tex)}\documentclass[8pt, a4paper]{article}
+
+\usepackage[german]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage[colorlinks=true,linkcolor=black]{hyperref}
+\usepackage{xcolor}
+\usepackage{sectsty}
+
+\sectionfont{\color{red}}
+\subsectionfont{\color{red}}
+
+\everymath{\displaystyle}
+
+\title{Mathematik 2 Formelsammlung}
+\author{Tim Hilt}
+\date{23. März 2018}
+
+\begin{document}
+
+\message{ !name(Mathe2Formelsammlung.tex) !offset(-3) }
+
+
+\maketitle
+\pagebreak
+
+\tableofcontents
+\pagebreak
+
+\setcounter{section}{13}
+\section{Differenzialgleichungen Erster Ordnung}
+
+\subsection{Separierbare Differenzialgleichung}
+Eine Differenzialgleichung Erster Ordnung, die man in der Form
+
+\[
+  y'=\frac{f(x)}{g(y)}
+\]
+
+schreiben kann, bezeichnet man als \textbf{separierbar}
+
+\subsection{Separation der Variablen}
+
+Die allgemeine Lösung einer separierbaren Differenzialgleichung kann man durch folgende Schritte bestimmen
+\begin{enumerate}
+\item Ersetze \(y'\) formal durch \(\frac{dy}{dx}\).
+  \item Separiere alle Terme in \(x\) und alle Terme in \(y\) und bringe die Differenzialgleichung damit in die Form \(g(y)dy=f(x)dx\).
+  \item Integriere symbolisch \(\int{g(y)dy} = \int{f(x)dx}\) separat auf beiden Seiten.
+  \item Löse die integrierte Gleichung nach der gesuchten Funktion \(y(x)\) auf.
+\end{enumerate}
+
+\subsection{Lösungsansatz homogene Dgl 1. Ordnung}
+
+Die allgemeine Lösung \(y_h\) einer homogenen linearen Differenzialgleichung
+
+\[
+  a_1(x)y'+a_0(x)y=0
+\]
+
+erster Ordnung lässt sich durch Separation bestimmen und lautet
+
+\[
+  y_h(x)=Ce^{-\int{\frac{a_o(x)}{a_y(x)}dx}}
+\]
+
+\subsection{Variation der Konstanten}
+
+Eine partikuläre Lösung einer linearen Differenzialgleichung erster Ordnung
+
+\[
+  a_1(x)y'+a_0(x)y=r(x)
+\]
+
+lässt sich durch \textbf{Variation der Konstanten} bestimmen:
+
+\begin{enumerate}
+\item Berechne die allgemeine Lösung der homogenen Differenzialgleichung.
+\item Ersetze die Konstante \(C\) in der homogenen Lösung durch eine Funktion \(C(x)\).\\
+  Daraus ergibt sich ein Ansatz \(y_p\) für eine partikuläre Lösung.
+\item Bestimme die Funktion \(C(x)\) durch Einsetzen von \(y_p\) in die Differenzialgleichung.
+\end{enumerate}
+
+\subsection{Nichtlineare Differenzialgleichungen}
+
+Nichtlinear ist eine Differenzialgleichung dann, wenn sie Produkte ihrer Lösung \(y(x)\) oder der Ableitungen beinhaltet\\
+Beispiele:
+
+\[
+  \begin{split}
+    % split bewirkt hier, dass die \\ auch als Zeilenumbruch gewertet werden!
+    y''*y=3x\\
+    2y'*y^2=0\\
+    y'*\frac{y}{x}=4x^2
+  \end{split}
+\]
+
+\subsection{Exponentialansatz}
+
+\[
+  y(x)=e^{\lambda x}
+\]
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+\message{ !name(Mathe2Formelsammlung.tex) !offset(-109) }
