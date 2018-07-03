@@ -25,15 +25,6 @@ Beispiel:\\[1em]
 \makebox[3cm]{\(y'(x) = x^2\) \hfill} wird null, für \(x = 0\).\\
 \makebox[3cm]{\(y'(x) = y^2\) \hfill} wird null, für \(y = 0\).
 
-\subsection{Separierbare Differenzialgleichung}
-Eine Differenzialgleichung erster Ordnung, die man in der Form
-
-\[
-  y'=\frac{f(x)}{g(y)}
-\]
-
-schreiben kann, bezeichnet man als \textbf{separierbar}
-
 \subsection{Separation der Variablen}
 
 Die allgemeine Lösung einer separierbaren Differenzialgleichung kann man durch folgende Schritte bestimmen
@@ -72,11 +63,15 @@ Eine partikuläre Lösung einer \textbf{linearen Differenzialgleichung \textcolo
 lässt sich durch \textbf{Variation der Konstanten} bestimmen:
 
 \begin{enumerate}
-\item Berechne die allgemeine Lösung der homogenen Differenzialgleichung.
+\item Berechne die allgemeine Lösung der homogenen Differenzialgleichung (meist durch Separation der Variablen)
 \item Ersetze die Konstante \(C\) in der homogenen Lösung durch eine Funktion \(C(x)\).\\
   Daraus ergibt sich ein Ansatz \(y_p\) für eine partikuläre Lösung.
 \item Bestimme die Funktion \(C(x)\) durch Einsetzen von \(y_p\) in die Differenzialgleichung.
 \end{enumerate}
+
+\begin{framed}
+  \textbf{Achtung: Signalcharakter!!! Bei DGL erster Ordnung mit Störfunktion meist zuerst Separation der Variablen, dann Variation der Konstanten!!!}
+\end{framed}
 
 \subsubsection{Beispiel}
 
@@ -85,7 +80,7 @@ DGL:\ \(y'+\frac{1}{x}y=\frac{2}{1+x^2}\)
 \begin{enumerate}
 \item zuerst homogene Lösung finden
   \[\rightarrow y_h(x)=\frac{C}{x}\]
-\item Variation der Konstanten; ersetze \(C\) durch \glqq{} Pseudofunktion\grqq{} \(C\textcolor{green}{(x)}\):
+\item Variation der Konstanten; ersetze \(C\) durch \glqq{}Pseudofunktion\grqq{} \(\textcolor{green}{C(x)}\):
   \[y(x)=\frac{\textcolor{green}{C(x)}}{x}\]
 \item Berechne alle relevanten Ableitung der Funktion \(y(x)\) und setze in ursprüngliche \textbf{inhomogene} DGL ein:
 
@@ -97,15 +92,27 @@ DGL:\ \(y'+\frac{1}{x}y=\frac{2}{1+x^2}\)
     \underbrace{\frac{\textcolor{green}{C'(x)}*x-\textcolor{green}{C(x)}}{x^2}}_\text{\(y'(x)\)}+\frac{1}{x}*\underbrace{\frac{\textcolor{green}{C(x)}}{x}}_\text{\(y(x)\)}=\frac{2}{1+x^2}
   \end{gather*}
 
-\item Soweit als möglich kürzen (\(C(x)\) muss sich immer kürzen!!)
+\item Soweit als möglich kürzen \textbf{(\(C(x)\) muss sich immer kürzen!!)}
 \item Nach \(C'(x)\) auflösen und aufleiten
-\item Integrationskonstante \(C\) weglassen, da ja ein Wert für C gesucht ist!
-\item \(C(x)\) einsetzen in partikulären Ansatz \(y_p(x)\) und soweit als möglich kürzen
+\item Beim Aufleiten hier \textbf{Integrationskonstante \(C\) weglassen}, da ja ein Wert für C gesucht ist!
+\item \textbf{\(C(x)\)} wieder zurück \textbf{einsetzen in partikulären Ansatz} \(y_p(x)\) und soweit als möglich kürzen
 \item Allgemeine Lösung \(y(x)\) ergibt sich aus Addition von \(y_h(x)\) und \(y_p(x)\)
   \[y(x)=y_h(x)+y_p(x)\]
+\item Bei AWP jetzt noch Wert am gegebenen Punkt einsetzen
   
 \end{enumerate}
 \section{Differenzialgleichungen höherer Ordnung}
+
+\subsection{Allgemeine Lösung einer Dgl}
+
+Die allgemeine Lösung einer linearen, homogenen Dgl \(n\)-ter Ordnung mit konstanten Koeffizienten wird in der Form
+
+\[
+  y(x) = C_1 e^{\lambda_1 x} + C_2 e^{\lambda_2 x} + C_3 e^{\lambda_3 x} + \dots + C_n e^{\lambda_n x}
+\]
+
+geschrieben. Jedes \(e^{\lambda_k x}\) ist dabei eine Fundamentallösung.
+
 \subsection{Nichtlineare Differenzialgleichungen}
 
 Nichtlinear ist eine Differenzialgleichung dann, wenn sie \mytextred{\textbf{Produkte ihrer Lösung \(y(x)\) oder der Ableitungen}} beinhaltet\\[1em]
@@ -225,7 +232,7 @@ Ist die Störfunktion \(r(x)\) eine zusammengesetzte Funktion von Addition oder 
 \subsubsection{Resonanz}
 
 Ist die \textbf{gesamte} Störfunktion (oder bei Superposition eine der Störfunktionen) in der allgemeinen Lösung der homogenen DGL enthalten, so liegt \textbf{Resonanz} vor.\\
-In einem solchen Fall muss der für den Typ der Störfunktion gewählte Ansatz mit x multipliziert werden.
+In einem solchen Fall muss der für den Typ der Störfunktion gewählte Ansatz mit \(x\) multipliziert werden. Ist der resonante Eigenwert ein mehrfacher (\(n\)-facher) Eigenwert, so wird der Ansatz mit \(x^n\) multipliziert.
 
 \subsection{Eulerverfahren}
 

@@ -9,7 +9,7 @@
 \contentsline {subsubsection}{\nonumberline Beispiel}{5}{section*.2}
 \contentsline {section}{\numberline {14.2}Differenzialgleichungen h\IeC {\"o}herer Ordnung}{6}{section.14.2}
 \contentsline {subsection}{\numberline {14.2.1}Nichtlineare Differenzialgleichungen}{6}{subsection.14.2.1}
-\contentsline {subsection}{\numberline {14.2.2}Lineare DGL n-ter Ordnung l\IeC {\"o}sen}{6}{subsection.14.2.2}
+\contentsline {subsection}{\numberline {14.2.2}Lineare DGL n-ter Ordnung l\IeC {\"o}sen}{7}{subsection.14.2.2}
 \contentsline {subsection}{\numberline {14.2.3}Charakteristische Gleichung}{7}{subsection.14.2.3}
 \contentsline {subsection}{\numberline {14.2.4}L\IeC {\"o}sungsansatz f\IeC {\"u}r homogene, lineare DGLs mit AWP}{7}{subsection.14.2.4}
 \contentsline {subsection}{\numberline {14.2.5}F\IeC {\"a}lle beim L\IeC {\"o}sen von Eigenwerten}{7}{subsection.14.2.5}
@@ -24,7 +24,7 @@
 \contentsline {subsection}{\numberline {14.3.1}Differenzialgleichung in Differenzialgleichungssystem umschreiben}{10}{subsection.14.3.1}
 \contentsline {subsection}{\numberline {14.3.2}Kriterien f\IeC {\"u}r stabile und instabile Systeme}{11}{subsection.14.3.2}
 \contentsline {subsection}{\numberline {14.3.3}Vorgehen bei komplexen Eigenwerten}{11}{subsection.14.3.3}
-\contentsline {subsection}{\numberline {14.3.4}L\IeC {\"o}sungsstrategie f\IeC {\"u}r lineare DGL-Systeme mit konstanten Koeffizienten}{11}{subsection.14.3.4}
+\contentsline {subsection}{\numberline {14.3.4}L\IeC {\"o}sungsstrategie f\IeC {\"u}r lineare DGL-Systeme mit konstanten Koeffizienten}{12}{subsection.14.3.4}
 \contentsline {subsection}{\numberline {14.3.5}Eulerverfahren bei DGL-Systemen}{12}{subsection.14.3.5}
 \contentsline {chapter}{\numberline {10}Potenzreihen}{13}{chapter.10}
 \contentsline {section}{\numberline {10.1}Reihe}{13}{section.10.1}
