@@ -3,6 +3,7 @@
 \usepackage{mystyle}
 \usepackage{float}
 \usepackage{makecell}
+\usepackage{lipsum}
 
 \begin{document}
 
@@ -111,7 +112,8 @@ Die allgemeine Lösung einer linearen, homogenen Dgl \(n\)-ter Ordnung mit konst
   y(x) = C_1 e^{\lambda_1 x} + C_2 e^{\lambda_2 x} + C_3 e^{\lambda_3 x} + \dots + C_n e^{\lambda_n x}
 \]
 
-geschrieben. Jedes \(e^{\lambda_k x}\) ist dabei eine Fundamentallösung.
+geschrieben. Jedes \(e^{\lambda_k x}\) ist dabei eine Fundamentallösung.\\
+\textbf{Beachte:} Formelparameter ist nicht immer \(x\)!
 
 \subsection{Nichtlineare Differenzialgleichungen}
 
@@ -237,7 +239,15 @@ In einem solchen Fall muss der für den Typ der Störfunktion gewählte Ansatz m
 \subsection{Eulerverfahren}
 
 Um das Eulerverfahren anwenden zu können benötigen wir eine Differenzialgleichung 1. Ordnung, sowie einen Funktionswert an der Stelle \(f(x_0) = m\) und eine Schrittweite \(h\)\\[1em]
-Algorithmus für das Vorgehen: \(y_{k+1} = y_k + h * y'(x_k) \quad | \quad x_{k+1} = x_k + h\)
+Algorithmus für das Vorgehen:
+
+
+\begin{align*}
+  y_{k+1} &= y_k + h * y'(x_k)\\
+  x_{k+1} &= x_k + h
+\end{align*}
+
+
 
 \textbf{Vorgehen:}
 \begin{enumerate}
@@ -257,12 +267,20 @@ Algorithmus für das Vorgehen: \(y_{k+1} = y_k + h * y'(x_k) \quad | \quad x_{k+
 \begin{enumerate}
 \item Nach \(y'(x)\) auflösen: \(y'(x) = -4x^3 \cdot y(x)\)
 \item Startwerte festlegen: \(x_0 = 1,\quad y_0 = 1\)
-\item \(y_1\) berechnen: \(y_1 = y_0 + h \cdot y'(x_0)\quad = y_1 = 1 + 0.1 \cdot (-4\cdot1^3 \cdot 1) = \dots\)
+\item \(y_1\) berechnen: \(y_1 = y_0 + h \cdot y'(x_0) \quad = 1 + 0.1 \cdot (-4\cdot1^3 \cdot 1) = \dots\)
 \item \(x_1\) berechnen: \(x_1 = x_0 + h = 1 + 0.1 = 1.1\)
 \item \(y_2\) berechnen: \dots
 \end{enumerate}
 
 \section{Differenzialgleichungssysteme}
+
+\subsection{Lösung eines Dgl-Systems \(n\)-ter Ordnung}
+
+\[
+  \mathbf{z} = C_1 e^{\lambda_1 x}*EV_1 + C_2 e^{\lambda_2 x}*EV_2 + \dots + C_n e^{\lambda_n x}*EV_n
+\]
+
+\textbf{Achtung:} Beachte andere Schreibweisen! z.B. Zeilenschreibweise. $\rightarrow$ nach Berechnung wieder in alte Schreibweise bringen!
 
 \subsection{Differenzialgleichung in Differenzialgleichungssystem umschreiben}
 
@@ -345,6 +363,34 @@ Bsp.:
 \]
 \(\mathbf{z(0)} = \left( \begin{smallmatrix} 1 \\ 4 \\ 0 \end{smallmatrix} \right)\)
 \end{figure}
+
+\subsection{Transformiere DGL in DGL-System mit Zustandsvariablen}
+
+Eine DGL \(n\)-ter Ordnung kann mithilfe von \(n\) Zustandsvariablen in ein DGL-System 1. Ordnung umgeschrieben werden.\\[1em]
+Dabei ist: {\hskip 5.5cm} Also folgt:
+
+\begin{minipage}{0.45\textwidth}
+  \begin{align*}
+    z_1 &= y\\
+    z_2 &= y'\\
+    z_3 &= y''\\
+    \vdots\\
+    z_n &= y^{(n)}\\
+  \end{align*}
+\end{minipage}
+\hfill
+\vline{}
+\hfill
+\begin{minipage}{0.45\textwidth}
+  \begin{align*}
+    z_1' &= z_2\\
+    z_2' &= z_3\\
+    z_3' &= z_4\\
+    \vdots\\
+    z_n' &= \text{\dots}\\
+  \end{align*}
+  \(z_n'\): Alles nach der höchsten Ableitung aufgelöst und mit Zustandsvariablen ersetzt
+\end{minipage}
 
 \subsection{Kriterien für stabile und instabile Systeme}
 \begin{enumerate}
@@ -504,15 +550,25 @@ Das \textbf{Taylorpolynom} vom Grad \(n\) wäre dementsprechend definiert durch
   T_n(x)=f(x_0)+\frac{f(x_0)^{'}}{1!}{(x-x_0)}+\frac{f(x_0)^{''}}{2!}{(x-x_0)}^2+\frac{f(x_0)^{'''}}{3!}{(x-x_0)}^3+ \cdots + \frac{f(x_0)^{n}}{n!}{(x-x_0)}^n
 \]
 
-\section{Reihen von Sinus und Cosinus}
+\section{Die wichtigen Reihen}
+Geometrische Reihe: \hfill
+\(
+\sum_{k=0}^{\infty} x^k \quad = 1 + x + x^2 + x^3+ \dots + x^n \quad = \quad \frac{1}{1-q} \qquad , r = 1
+\)
+
+Reihe der \(e\)-Funktion: \hfill
+\(
+\sum_{k=0}^{\infty}\frac{x^k}{k!} \quad = 1 + \frac{x}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!} \dots \frac{x^n}{n!} \qquad , r = \infty
+\)
+
 Sinus: \hfill
 \(
-\sum_{k=0}^{\infty}(-1)^k\frac{x^{2k+1}}{(2k+1)!} \quad = \frac{x}{1!} - \frac{x^3}{3!} + \frac{x^5}{5!} \cdots \qquad r = \infty
+\sum_{k=0}^{\infty}(-1)^k\frac{x^{2k+1}}{(2k+1)!} \quad = \frac{x}{1!} - \frac{x^3}{3!} + \frac{x^5}{5!} \dots \qquad r = \infty
 \)
 
 Cosinus: \hfill
 \(
-\sum_{k=0}^{\infty}(-1)^k\frac{x^{2k}}{(2k)!} \quad = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} \cdots \qquad r = \infty
+\sum_{k=0}^{\infty}(-1)^k\frac{x^{2k}}{(2k)!} \quad = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} \dots \qquad r = \infty
 \)
 
 \clearpage

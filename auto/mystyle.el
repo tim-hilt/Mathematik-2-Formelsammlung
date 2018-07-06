@@ -2,7 +2,7 @@
  "mystyle"
  (lambda ()
    (TeX-add-to-alist 'LaTeX-provided-package-options
-                     '(("geometry" "margin=1.5cm") ("babel" "ngerman") ("inputenc" "utf8") ("hyperref" "colorlinks=true" "linkcolor=black" "linktoc=all")))
+                     '(("geometry" "margin=2.5cm") ("babel" "ngerman") ("inputenc" "utf8") ("hyperref" "colorlinks=true" "linkcolor=black" "linktoc=all")))
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
@@ -18,6 +18,7 @@
     "empheq"
     "gensymb"
     "framed"
+    "float"
     "xcolor"
     "svg"
     "hyperref"

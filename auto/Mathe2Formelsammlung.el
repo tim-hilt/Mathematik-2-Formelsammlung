@@ -17,6 +17,7 @@
     "scrreprt12"
     "mystyle"
     "float"
-    "makecell"))
+    "makecell"
+    "lipsum"))
  :latex)
 
